@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const User = mongoose.model("user");
+const path = require("path");
 
 module.exports = app => {
   app.post("/api/games", async (req, res) => {
@@ -111,6 +112,6 @@ module.exports = app => {
   });
 
   app.get("/*", function(req, res) {
-    res.sendFile('../client/public/index.html', {root: __dirname});
+    res.sendFile(path.join(__dirname, "../client/public", "index.html"));
   });
 };
