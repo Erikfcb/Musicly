@@ -13,7 +13,6 @@ app.use(
     extended: true
   })
 );
-app.use(express.static(path.join(__dirname, "client/build")));
 
 require("./routes/generalRoutes")(app);
 require("./routes/signUpRoutes")(app);
@@ -24,9 +23,7 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
-});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
