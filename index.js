@@ -9,7 +9,7 @@ require("./models/User");
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "build")));
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
