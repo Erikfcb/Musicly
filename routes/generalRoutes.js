@@ -112,6 +112,6 @@ module.exports = app => {
   });
 
   app.get("/*", function(req, res) {
-    res.sendFile(path.join(__dirname, "../client/public", "index.html"));
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
   });
 };
