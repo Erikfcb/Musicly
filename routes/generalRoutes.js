@@ -12,8 +12,6 @@ module.exports = app => {
     const data = {
       games: {}
     };
-
-    console.log(req.body);
     await User.findOne({ _id: req.body.id }, (err, user) => {
       if (user != null) {
         if (user._id == req.body.id) {
@@ -27,10 +25,7 @@ module.exports = app => {
   app.post("/api/progress", async (req, res) => {
     let data = { progress: 0, tries: 0, correct: 0 };
     const level = req.body.level.toLowerCase();
-    console.log(level);
     await User.findOne({ _id: req.body.id }, (err, user) => {
-      console.log(user.games[req.body.game][level]);
-
       if (user != null) {
         progress =
           (user.games[req.body.game][level].correct * 100) /
