@@ -1,0 +1,56 @@
+body {
+  color: rgb(87, 87, 87);
+  background-color: rgb(244, 244, 244);
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  color: white;
+}
+.brand-logo {
+  left: 50px !important;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+}
+
+.header h1 a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+.navigation {
+  display: flex;
+  height: 100%;
+}
+
+.navigation a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navigation a:hover {
+  background-color: rgb(60, 76, 131);
+  cursor: pointer;
+}
+
+.logo {
+  padding: 0 20px;
+}
