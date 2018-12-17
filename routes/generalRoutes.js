@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const User = mongoose.model("user");
 
 module.exports = app => {
-
   app.post("/api/games", async (req, res) => {
     const data = {
       games: {}
@@ -21,11 +20,11 @@ module.exports = app => {
 
   app.post("/api/progress", async (req, res) => {
     let data = { progress: 0, tries: 0, correct: 0 };
-    const level = req.body.level.toLowerCase(); 
-    console.log(level)  
+    const level = req.body.level.toLowerCase();
+    console.log(level);
     await User.findOne({ _id: req.body.id }, (err, user) => {
-    console.log(user.games[req.body.game][level])  
-      
+      console.log(user.games[req.body.game][level]);
+
       if (user != null) {
         progress =
           (user.games[req.body.game][level].correct * 100) /
@@ -111,11 +110,7 @@ module.exports = app => {
     res.send();
   });
 
-  app.get('/*', function(req, res) {
-    res.sendFile('../client/public/index.html', {root: __dirname});, function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
+  app.get("/*", function(req, res) {
+    res.sendFile(path.join(__dirname, "../client/public", "index1.html"));
+  });
 };
