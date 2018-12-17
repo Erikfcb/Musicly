@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const User = mongoose.model("user");
 
 module.exports = app => {
-  
+
   app.post("/api/games", async (req, res) => {
     const data = {
       games: {}
@@ -110,4 +110,12 @@ module.exports = app => {
     });
     res.send();
   });
+
+  app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../client/public/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  })
 };
