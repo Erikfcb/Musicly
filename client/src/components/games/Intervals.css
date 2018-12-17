@@ -1,0 +1,18 @@
+.intervals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.difficulties {
+  width: 50%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.interval{
+  width: 170px;
+  height: 70px !important;
+}

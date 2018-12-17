@@ -35,11 +35,8 @@ class GuessTheNote extends Component {
         : this.state.difficulty == 3
         ? "Hard"
         : "Easy";
-    // if (this.state.difficulty == 2) sounds = twoOctaves;
-    // if (this.state.difficulty == 2) sounds = all;
-    let answer = localStorage.getItem("guessTheNote");
 
-    let clear = false;
+    let answer = localStorage.getItem("guessTheNote");
 
     const getProgress = async () => {
       const res = await axios.post("/api/progress", {

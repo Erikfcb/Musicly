@@ -3,7 +3,6 @@ const User = mongoose.model("user");
 const path = require("path");
 
 module.exports = app => {
-
   app.get("/*", function(req, res) {
     res.sendFile(path.join(__dirname, "../client/build", "index.html"));
   });
@@ -46,10 +45,17 @@ module.exports = app => {
     let newTries = 0;
     let newCorrect = 0;
     const level = req.body.level.toLowerCase();
+    console.log(req.body);
 
     await User.findOne({ _id: req.body.id }, (err, user) => {
       if (user != null) {
+        console.log(req.body.level);
+        console.log("tries: .............");        
+        console.log(user.games[req.body.game][level]);
+
         if (req.body.correct) {
+          // console.log(user.games[req.body.game][level].tries);
+
           newGames = user.games;
           newTries = user.games[req.body.game][level].tries + 1;
           newCorrect = user.games[req.body.game][level].correct + 1;

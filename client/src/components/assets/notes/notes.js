@@ -91,4 +91,42 @@ const octaves = {
   ]
 };
 
-export { all, octaves, twoOctaves };
+const seconds = [[c3, d3], [d3, e3], [f3, g3], [g3, a3], [a3, b3]];
+
+const thirds = [[c3, e3], [f3, a3], [g3, b3], [c4, e4], [f4, a4], [g4, b4]];
+
+const fifths = [[c3, g3], [d3, a3], [e3, b3], [f3, c4], [g3, d4], [a3, e4]];
+
+const seveths = [[c3, b3], [f3, e4], [c4, b4], [f4, e5], [c5, b5]];
+
+const octaveInterval = [
+  [c3, c4],
+  [d3, d4],
+  [e3, e4],
+  [f3, f4],
+  [g3, g4],
+  [a3, a4]
+];
+
+const intervals = {
+  easy: [
+    { answer: "octave", sounds: octaveInterval },
+    { answer: "third", sounds: thirds },
+    { answer: "fifth", sounds: fifths }
+  ],
+  medium: [
+    { answer: "octave", sounds: octaveInterval },
+    { answer: "third", sounds: thirds },
+    { answer: "fifth", sounds: fifths },
+    { answer: "second", sounds: seconds }
+  ],
+  hard: [
+    { answer: "octave", sounds: octaveInterval },
+    { answer: "third", sounds: thirds },
+    { answer: "fifth", sounds: fifths },
+    { answer: "second", sounds: seconds },
+    { answer: "seventh", sounds: seveths }
+  ]
+};
+
+export { all, octaves, twoOctaves, intervals };
