@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { octaves, all } from "../assets/notes/notes";
+import axios from 'axios';
 
 class Melody extends Component {
   constructor(props) {
