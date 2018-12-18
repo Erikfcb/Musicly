@@ -115,8 +115,6 @@ class Dashboard extends Component {
       <div className="dashboard">
         <Game game={games.guessTheNote} />
         <Game game={games.intervals} />
-        <Game game={games.melody} />
-        <Game game={games.chords} />
       </div>
     );
   }
