@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import "../style/game.css";
+import { Button, Modal } from "react-materialize";
 
 class Game extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class Game extends Component {
         });
         this.props.game.rerender();
       }
+      this.setState({ rerender: !this.state.rerender });
     };
 
     return (
@@ -46,28 +48,47 @@ class Game extends Component {
           <button className="play marginLeft btn left green" onClick={start}>
             Play
           </button>
-          <p className="">Easy: 
-            {this.props.game === undefined || isNaN(this.props.game.progress.easy)
+          <p className="">
+            Easy:{" "}
+            {this.props.game === undefined ||
+            isNaN(this.props.game.progress.easy)
               ? "0"
               : Math.floor(this.props.game.progress.easy)}
             %
           </p>
-          <p className="">Medium:  
-            {this.props.game === undefined || isNaN(this.props.game.progress.medium)
+          <p className="">
+            Medium:{" "}
+            {this.props.game === undefined ||
+            isNaN(this.props.game.progress.medium)
               ? "0"
               : Math.floor(this.props.game.progress.medium)}
             %
           </p>
-          <p className="">Hard:  
-            {this.props.game === undefined || isNaN(this.props.game.progress.hard)
+          <p className="">
+            Hard:{" "}
+            {this.props.game === undefined ||
+            isNaN(this.props.game.progress.hard)
               ? "0"
               : Math.floor(this.props.game.progress.hard)}
             %
           </p>
 
-          <button className="reset btn right red" onClick={reset}>
-            Reset
-          </button>
+          <Modal
+            header="Warning"
+            trigger={<Button className="reset btn right red">Reset</Button>}
+            actions={[
+              <Button
+                modal="close"
+                onClick={reset}
+                style={{ marginRight: "20px" }}
+              >
+                Yes
+              </Button>,
+              <Button modal="close">No</Button>
+            ]}
+          >
+            <p>Are you sure you want to reset the progress?</p>
+          </Modal>
         </div>
         {this.state.redirect}
       </div>

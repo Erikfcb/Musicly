@@ -185,49 +185,56 @@ class Intervals extends Component {
       return (
         <button
           onClick={() => this.checkAnswer(type.answer)}
-          className={"btn interval waves-effect waves-light " + this.state[type.answer]}
+          className={
+            "btn interval  waves-light " + this.state[type.answer]
+          }
         >
           {type.title}
         </button>
       );
     });
 
+    const precentage = this.state.progress + "%";
+
     return (
       <div className="intervals">
         <div className="question">
           <button
             onClick={this.playQuestion}
-            className="btn green sound waves-effect waves-light"
+            className="btn green sound  waves-light"
           >
             Play
           </button>
           <p style={{ fontSize: "1.5em" }}>Click the button to hear again</p>
 
           <p style={{ fontSize: "1.5em" }}>
-            Progress: ({this.state.correct}/{this.state.tries})
+            Progress: ({this.state.correct}/{this.state.tries}){" "}
             {Math.floor(this.state.progress)}%
           </p>
+          <div class="progress">
+            <div class="determinate" style={{ width: precentage }} />
+          </div>
         </div>
         <div className="answers">{buttons}</div>
         <p style={{ fontSize: "1.5em" }}>Click the correct interval.</p>
         <p style={{ color: "teal", fontSize: "1.5em" }}>Level: {level}</p>
         <div className="difficulties">
           <button
-            className="btn waves-effect waves-light"
+            className="btn  waves-light"
             id="1"
             onClick={this.difficulty}
           >
             Easy
           </button>
           <button
-            className="btn waves-effect waves-light"
+            className="btn  waves-light"
             id="2"
             onClick={this.difficulty}
           >
             Medium
           </button>
           <button
-            className="btn waves-effect waves-light"
+            className="btn  waves-light"
             id="3"
             onClick={this.difficulty}
           >

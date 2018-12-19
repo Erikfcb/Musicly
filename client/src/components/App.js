@@ -10,6 +10,8 @@ import GuessTheNote from "./games/GuessTheNote";
 import Chords from "./games/Chords";
 import Intervals from "./games/Intervals";
 import Melody from "./games/Melody";
+import Howto from "./Howto";
+import Contact from "./Contact";
 
 import * as actions from "../actions";
 import { logout } from "../LocalStorage";
@@ -38,6 +40,8 @@ class App extends Component {
           <Route path="/guessthenote" component={GuessTheNote} />
           <Route path="/intervals" component={Intervals} />
           <Route path="/melody" component={Melody} />
+          <Route path="/howto" component={Howto} />
+          <Route path="/contact" component={Contact} />
         </div>
       </BrowserRouter>
     );

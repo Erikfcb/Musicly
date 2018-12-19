@@ -134,9 +134,7 @@ class GuessTheNote extends Component {
       return (
         <button
           onClick={() => playAnswer(note.sound, note.name)}
-          className={
-            "btn  sound waves-effect waves-light " + this.state[note.name]
-          }
+          className={"btn  sound  waves-light " + this.state[note.name]}
         >
           {note.name}
         </button>
@@ -148,27 +146,32 @@ class GuessTheNote extends Component {
       this.setState({ difficulty: e.target.id, newSound: true });
     };
 
+    const precentage = this.state.progress + "%";
+
     return (
       <div className="guessTheNote">
         <div className="question">
           <button
             onClick={() => playQuestion(sounds[answer].sound)}
-            className="btn green sound waves-effect waves-light"
+            className="btn green sound  waves-light"
           >
             Play
           </button>
           <p style={{ fontSize: "1.5em" }}>Click the button to hear again</p>
           <button
             onClick={() => playQuestion(sounds[0].sound)}
-            className="btn teal sound waves-effect waves-light"
+            className="btn teal sound  waves-light"
           >
             C
           </button>
           <p style={{ color: "teal" }}>reference note</p>
           <p style={{ fontSize: "1.5em" }}>
-            Progress: ({this.state.correct}/{this.state.tries})
+            Progress: ({this.state.correct}/{this.state.tries}){" "}
             {Math.floor(this.state.progress)}%
           </p>
+          <div class="progress">
+            <div class="determinate" style={{ width: precentage }} />
+          </div>
         </div>
         <div className="answers">{buttons}</div>
         <p style={{ fontSize: "1.5em" }}>
@@ -176,25 +179,13 @@ class GuessTheNote extends Component {
         </p>
         <p style={{ color: "teal", fontSize: "1.5em" }}>Level: {level}</p>
         <div className="difficulties">
-          <button
-            className="btn waves-effect waves-light"
-            id="1"
-            onClick={difficulty}
-          >
+          <button className="btn  waves-light" id="1" onClick={difficulty}>
             Easy
           </button>
-          <button
-            className="btn waves-effect waves-light"
-            id="2"
-            onClick={difficulty}
-          >
+          <button className="btn  waves-light" id="2" onClick={difficulty}>
             Medium
           </button>
-          <button
-            className="btn waves-effect waves-light"
-            id="3"
-            onClick={difficulty}
-          >
+          <button className="btn  waves-light" id="3" onClick={difficulty}>
             Hard
           </button>
         </div>

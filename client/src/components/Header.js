@@ -15,7 +15,13 @@ class Header extends Component {
     const navigation = this.props.auth.logged ? (
       <ul class="right">
         <li>
-          <Link to="/games">Games</Link>
+          <Link to="/games">Exercises</Link>
+        </li>
+        <li>
+          <Link to="/howto">How to practice</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact me</Link>
         </li>
         <li>
           <Link onClick={logout} to="/" className="logout">
@@ -25,6 +31,12 @@ class Header extends Component {
       </ul>
     ) : (
       <ul id="nav" class="right">
+        <li>
+          <Link to="/howto">How to practice</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact me</Link>
+        </li>
         <li>
           <Link to="/signup">Sign up</Link>
         </li>

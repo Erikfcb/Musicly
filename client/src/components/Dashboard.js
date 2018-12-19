@@ -113,6 +113,11 @@ class Dashboard extends Component {
     }
     return (
       <div className="dashboard">
+        <h1>Ear Training Practice</h1>
+        <blockquote>
+          These exercises will improve your musical ability by developing a more
+          intuitive understanding of what you hear.
+        </blockquote>
         <Game game={games.guessTheNote} />
         <Game game={games.intervals} />
       </div>
