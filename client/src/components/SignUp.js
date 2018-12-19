@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { Route, Redirect } from "react-router";
 import axios from "axios";
-
+import * as EmailValidator from "email-validator";
+import {
+  loginById
+} from '../actions'
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -16,49 +20,57 @@ class SignUp extends Component {
     const style = { textAlign: "center" };
 
     const handleSubmit = async () => {
-
-      const res = await axios.post("/api/signup/checkexist", {
-        email: this.state.email.toLowerCase().trim(),
-        username: this.state.username.toLowerCase().trim()
-      });
-
-      if (res.data.email) {
-        this.setState({
-          exist: (
-            <h3 style={{ color: "red" }}>
-              Email already exists in our database, try to log in.
-            </h3>
-          )
-        });
+      let validEmail = "";
+      if (this.state.email !== "") {
+        validEmail = EmailValidator.validate(this.state.email);
       }
 
-      if (res.data.username) {
+      if (validEmail === false) {
         this.setState({
-          exist: (
-            <h3 style={{ color: "red" }}>
-              Username already exists, try another one.
-            </h3>
-          )
+          exist: <p style={{ color: "red" }}>Invalid email.</p>
         });
       }
-
-      if (!res.data.email && !res.data.username) {
-        const res = await axios.post("/api/signup/new", {
+      if (validEmail && validEmail !== "") {
+        const res = await axios.post("/api/signup/checkexist", {
           email: this.state.email.toLowerCase().trim(),
-          password: this.state.password,
           username: this.state.username.toLowerCase().trim()
         });
 
-        this.setState({
-          exist: (
-            <h3 style={{ color: "green" }}>
-              User {this.state.username} created successfully, go and log in.
-            </h3>
-          ),
-          username: "",
-          password: "",
-          email: ""
-        });
+        if (res.data.email) {
+          this.setState({
+            exist: (
+              <p style={{ color: "red" }}>
+                Email already exists in our database, try to log in.
+              </p>
+            )
+          });
+        }
+
+        if (res.data.username) {
+          this.setState({
+            exist: (
+              <p style={{ color: "red" }}>
+                Username already exists, try another one.
+              </p>
+            )
+          });
+        }
+
+        if (!res.data.email && !res.data.username) {
+          const resId = await axios.post("/api/signup/new", {
+            email: this.state.email.toLowerCase().trim(),
+            password: this.state.password,
+            username: this.state.username.toLowerCase().trim()
+          });
+          console.log(resId.data.id);
+
+          this.props.loginById(resId.data.id);
+          console.log(localStorage.getItem("token"));
+
+          this.setState({
+            exist: <Redirect to='/games' />
+          });
+        }
       }
     };
 
@@ -69,7 +81,7 @@ class SignUp extends Component {
     const toLogin = this.state.flag ? <Redirect to="/login" /> : "";
 
     return (
-      <div className="signup">
+      <div className="signup container">
         {toLogin}
         <h1 style={style}>Sign up for free!</h1>
         <form>
@@ -82,7 +94,7 @@ class SignUp extends Component {
           />
           <label>Password: </label>
           <input
-            type="text"
+            type="password"
             onChange={handleChange}
             name="password"
             value={this.state.password}
@@ -95,11 +107,17 @@ class SignUp extends Component {
             value={this.state.email}
           />
         </form>
-        <button onClick={handleSubmit} className="btn blue">Submit</button>
+        <button onClick={handleSubmit} className="btn blue">
+          Submit
+        </button>
         {this.state.exist}
       </div>
     );
   }
 }
 
-export default SignUp;
+
+export default connect(
+  null,
+  { loginById }
+)(SignUp);

@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "../actions/types";
+import { LOGIN, LOGOUT, SIGNUP } from "../actions/types";
 
 export default (state = {}, action) => {
   switch (action.type) {
@@ -6,6 +6,8 @@ export default (state = {}, action) => {
       return { logged: true, user: action.user };
     case LOGOUT:
       return action.payload;
+    case SIGNUP:
+    return "";
     default:
       return state;
   }

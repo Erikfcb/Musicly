@@ -8,6 +8,7 @@ export const login = () => async (dispatch, user) => {
 
 export const loginById = () => async (dispatch, id) => {
   const res = await axios.post("/api/login/id", { id });
+  localStorage.setItem("token", res.data.user._id);
   dispatch({ type: LOGIN, payload: res.data.user });
 };
 

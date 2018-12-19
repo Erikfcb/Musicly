@@ -51,7 +51,7 @@ class Login extends Component {
 
     const style = { textAlign: "center" };
     return (
-      <div className="login">
+      <div className="login container">
         <form>
           <label>Username: </label>
           <input
@@ -62,7 +62,7 @@ class Login extends Component {
           />
           <label>Password: </label>
           <input
-            type="text"
+            type="password"
             onChange={handleChange}
             name="password"
             value={this.state.password}
