@@ -13,41 +13,42 @@ class Header extends Component {
       this.props.logout();
     };
 
-    const navigation = this.props.auth.logged ? (
-      <ul class="right">
-        <li>
-          <Link to="/games">Exercises</Link>
-        </li>
-        <li>
-          <Link to="/howto">How to practice</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact me</Link>
-        </li>
-        <li>
-          <Link onClick={logout} to="/" className="logout">
-            Logout
-          </Link>
-        </li>
-      </ul>
-    ) : (
-      <ul id="nav" class="right">
-        <li>
-          <Link to="/howto">How to practice</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact me</Link>
-        </li>
-        <li>
-          <Link to="/signup">Sign up</Link>
-        </li>
-        <li>
-          <Link to="/login" className="login">
-            Login
-          </Link>
-        </li>
-      </ul>
-    );
+    const navigation =
+      this.props.auth.logged || localStorage.getItem("token") != null ? (
+        <ul class="right">
+          <li>
+            <Link to="/games">Exercises</Link>
+          </li>
+          <li>
+            <Link to="/howto">How to practice</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact me</Link>
+          </li>
+          <li>
+            <Link onClick={logout} to="/" className="logout">
+              Logout
+            </Link>
+          </li>
+        </ul>
+      ) : (
+        <ul id="nav" class="right">
+          <li>
+            <Link to="/howto">How to practice</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact me</Link>
+          </li>
+          <li>
+            <Link to="/signup">Sign up</Link>
+          </li>
+          <li>
+            <Link to="/login" className="login">
+              Login
+            </Link>
+          </li>
+        </ul>
+      );
 
     return (
       <nav>

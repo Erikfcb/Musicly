@@ -1,7 +1,7 @@
 {
   "main.css": "/static/css/main.96e2099b.chunk.css",
-  "main.js": "/static/js/main.0e4aaa81.chunk.js",
-  "main.js.map": "/static/js/main.0e4aaa81.chunk.js.map",
+  "main.js": "/static/js/main.0534f656.chunk.js",
+  "main.js.map": "/static/js/main.0534f656.chunk.js.map",
   "static/css/1.5a41cbb3.chunk.css": "/static/css/1.5a41cbb3.chunk.css",
   "static/js/1.5a3caa46.chunk.js": "/static/js/1.5a3caa46.chunk.js",
   "static/js/1.5a3caa46.chunk.js.map": "/static/js/1.5a3caa46.chunk.js.map",
@@ -15,9 +15,9 @@
   "static/media/b.wav": "/static/media/b.b598f80f.wav",
   "static/media/a.wav": "/static/media/a.50da716c.wav",
   "static/media/game.css": "/static/media/piano2.01fbfe17.png",
-  "static/css/main.96e2099b.chunk.css.map": "/static/css/main.96e2099b.chunk.css.map",
   "static/css/1.5a41cbb3.chunk.css.map": "/static/css/1.5a41cbb3.chunk.css.map",
+  "static/css/main.96e2099b.chunk.css.map": "/static/css/main.96e2099b.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.7e3d100d4508299d5381c38302bd6575.js": "/precache-manifest.7e3d100d4508299d5381c38302bd6575.js",
+  "precache-manifest.a8c18b541ebcd7f50cce5bd377349ac3.js": "/precache-manifest.a8c18b541ebcd7f50cce5bd377349ac3.js",
   "service-worker.js": "/service-worker.js"
 }

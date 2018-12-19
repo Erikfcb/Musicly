@@ -12,14 +12,15 @@ class Game extends Component {
       redirect: "",
       rerender: false
     };
+
+    this.start = this.start.bind(this);
+  }
+  start() {
+    this.setState(state => ({
+      redirect: <Redirect to={this.props.game.route} />
+    }));
   }
   render() {
-    const start = () => {
-      this.setState(state => ({
-        redirect: <Redirect to={this.props.game.route} />
-      }));
-    };
-
     const reset = async () => {
       if (this.props.game !== undefined) {
         const title = this.props.game.resetTitle;
@@ -45,7 +46,7 @@ class Game extends Component {
           </p>
         </div>
         <div className="card-action">
-          <button className="play marginLeft btn left green" onClick={start}>
+          <button className="play marginLeft btn left green" onClick={this.start}>
             Play
           </button>
           <p className="">

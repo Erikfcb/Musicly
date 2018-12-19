@@ -16,7 +16,8 @@ export const logout = () => async dispatch => {
   dispatch({ type: LOGOUT, payload: { logged: false, user: {} } });
 };
 
-export const fetchGames = (token) => async (dispatch ) => {
+export const fetchGames = token => async dispatch => {
+  console.log(token);
   const res = await axios.post("/api/games", { id: token.id });
   dispatch({ type: FETCH_GAMES, payload: res.data.games });
 };

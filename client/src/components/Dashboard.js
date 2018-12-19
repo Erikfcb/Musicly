@@ -27,6 +27,8 @@ class Dashboard extends Component {
 
   render() {
     let games = {};
+    console.log(this.props.games);
+
     const renderGames = () => {
       games = {
         guessTheNote: {
@@ -108,13 +110,14 @@ class Dashboard extends Component {
       };
     };
 
-    if (Object.keys(this.props.games).length > 0) {
+    console.log(localStorage.getItem("token"));
+    if (typeof this.props.games.guessTheNote !== "undefined") {
       renderGames();
     }
     return (
       <div className="dashboard container">
         <h1>Ear Training Practice</h1>
-        <blockquote style={{fontSize: '1.5em'}}>
+        <blockquote style={{ fontSize: "1.5em" }}>
           These exercises will improve your musical ability by developing a more
           intuitive understanding of what you hear.
         </blockquote>
@@ -134,3 +137,4 @@ export default connect(
   mapStateToProps,
   actions
 )(Dashboard);
+// export default Dashboard;

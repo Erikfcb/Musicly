@@ -17,15 +17,15 @@ import * as actions from "../actions";
 import { logout } from "../LocalStorage";
 
 class App extends Component {
-  componentDidMount() {
-    const token = localStorage.getItem("token");
+  // componentDidMount() {
+  //   const token = localStorage.getItem("token");
 
-    if (token != null) {
-      this.props.loginById({
-        id: token
-      });
-    }
-  }
+  //   if (token != null) {
+  //     this.props.loginById({
+  //       id: token
+  //     });
+  //   }
+  // }
 
   render() {
     return (
