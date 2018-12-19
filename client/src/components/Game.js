@@ -77,14 +77,14 @@ class Game extends Component {
             header="Warning"
             trigger={<Button className="reset btn right red">Reset</Button>}
             actions={[
+              <Button modal="close">No</Button>,
               <Button
                 modal="close"
                 onClick={reset}
                 style={{ marginRight: "20px" }}
               >
                 Yes
-              </Button>,
-              <Button modal="close">No</Button>
+              </Button>
             ]}
           >
             <p>Are you sure you want to reset the progress?</p>

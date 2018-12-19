@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Dropdown, Button, NavItem } from "react-materialize";
 import "../style/header.css";
 
 import * as actions from "../actions";

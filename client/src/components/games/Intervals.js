@@ -197,7 +197,7 @@ class Intervals extends Component {
     const precentage = this.state.progress + "%";
 
     return (
-      <div className="intervals">
+      <div className="intervals container">
         <div className="question">
           <button
             onClick={this.playQuestion}

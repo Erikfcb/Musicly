@@ -112,9 +112,9 @@ class Dashboard extends Component {
       renderGames();
     }
     return (
-      <div className="dashboard">
+      <div className="dashboard container">
         <h1>Ear Training Practice</h1>
-        <blockquote>
+        <blockquote style={{fontSize: '1.5em'}}>
           These exercises will improve your musical ability by developing a more
           intuitive understanding of what you hear.
         </blockquote>

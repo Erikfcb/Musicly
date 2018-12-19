@@ -149,7 +149,7 @@ class GuessTheNote extends Component {
     const precentage = this.state.progress + "%";
 
     return (
-      <div className="guessTheNote">
+      <div className="guessTheNote container">
         <div className="question">
           <button
             onClick={() => playQuestion(sounds[answer].sound)}

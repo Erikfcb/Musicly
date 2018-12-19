@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container">
+        <div className="">
           <Header />
           <Route exact path="/" component={Landing} />
           <Route path="/login" component={Login} />

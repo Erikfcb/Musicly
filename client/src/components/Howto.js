@@ -3,7 +3,7 @@ import { Collapsible, CollapsibleItem, Icon } from "react-materialize";
 
 const Howto = () => {
   return (
-    <div>
+    <div className="container">
       <h2>How to practice ear training</h2>
 
       <Collapsible accordion defaultActiveKey={0}>
