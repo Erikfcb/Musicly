@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/static/media/f.72b1591c.wav"
   },
   {
-    "revision": "701d404de6b83099850b",
-    "url": "/static/css/main.bcb937e1.chunk.css"
+    "revision": "2953e3d36a13e82159b1",
+    "url": "/static/css/main.61060f9d.chunk.css"
   },
   {
     "revision": "01fbfe17a085fb83eeef62f9aea564fd",
     "url": "/static/media/piano2.01fbfe17.png"
   },
   {
-    "revision": "dfd853fd367dd1717ae7",
-    "url": "/static/js/1.dfd853fd.chunk.js"
+    "revision": "0bf75086f5bfcdb8bffe",
+    "url": "/static/js/1.0bf75086.chunk.js"
   },
   {
     "revision": "229c360febb4351a89df",
@@ -56,8 +56,8 @@ self.__precacheManifest = [
     "url": "/static/media/e.71bf79bf.wav"
   },
   {
-    "revision": "701d404de6b83099850b",
-    "url": "/static/js/main.701d404d.chunk.js"
+    "revision": "2953e3d36a13e82159b1",
+    "url": "/static/js/main.2953e3d3.chunk.js"
   },
   {
     "revision": "c4d20890f79381ed5ff3a1060d53bbb6",
@@ -104,11 +104,11 @@ self.__precacheManifest = [
     "url": "/static/media/a.50da716c.wav"
   },
   {
-    "revision": "dfd853fd367dd1717ae7",
-    "url": "/static/css/1.0e1765e8.chunk.css"
+    "revision": "0bf75086f5bfcdb8bffe",
+    "url": "/static/css/1.73ec75f8.chunk.css"
   },
   {
-    "revision": "5206d8d5070419f6122049a3ae77d729",
+    "revision": "264547e7bfb7cc3fed3bd71347fe9087",
     "url": "/index.html"
   }
 ];
