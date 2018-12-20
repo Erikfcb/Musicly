@@ -15,7 +15,7 @@ class Header extends Component {
 
     const navigation =
       this.props.auth.logged || localStorage.getItem("token") != null ? (
-        <ul class="right">
+        <ul class="right headerButtons">
           <li>
             <Link to="/games">Exercises</Link>
           </li>
@@ -23,7 +23,7 @@ class Header extends Component {
             <Link to="/howto">How to practice</Link>
           </li>
           <li>
-            <Link to="/contact">Contact me</Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
             <Link onClick={logout} to="/" className="logout">
@@ -32,12 +32,12 @@ class Header extends Component {
           </li>
         </ul>
       ) : (
-        <ul id="nav" class="right">
+        <ul id="nav" class="right headerButtons">
           <li>
             <Link to="/howto">How to practice</Link>
           </li>
           <li>
-            <Link to="/contact">Contact me</Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
             <Link to="/signup">Sign up</Link>

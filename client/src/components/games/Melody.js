@@ -186,7 +186,7 @@ class Melody extends Component {
   }
 
   render() {
-    const precentage = this.state.progress + "%";
+    const precentage = isNaN(this.state.progress)? "0%": this.state.progress + '%';
 
     const level =
       this.state.difficulty == 2
@@ -223,8 +223,8 @@ class Melody extends Component {
             <div class="determinate" style={{ width: precentage }} />
           </div>
         </div>
-        <button className="btn red reset" onClick={this.reset}>
-          Reset
+        <button className="btn red resetAnswer" onClick={this.reset}>
+          Reset your answer
         </button>
 
         {this.state.feedback}

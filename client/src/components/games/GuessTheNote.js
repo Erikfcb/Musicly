@@ -71,7 +71,9 @@ class GuessTheNote extends Component {
           id: localStorage.getItem("token"),
           level: level
         });
-        this.setState({ [name]: "red" });
+        this.setState({
+          [name]: "red"
+        });
       }
 
       if (correct) {
@@ -81,7 +83,9 @@ class GuessTheNote extends Component {
           id: localStorage.getItem("token"),
           level: level
         });
-        this.setState({ [name]: "green" });
+        this.setState({
+          [name]: "green"
+        });
       }
     };
 

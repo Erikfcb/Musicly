@@ -46,7 +46,9 @@ class Intervals extends Component {
       setTimeout(() => {
         this.setState({ rerender: !this.state.rernder });
       }, 500);
-      this.setState({ [name]: "red" });
+      this.setState({
+        [name]: "red"
+      });
     }
 
     if (correct) {
@@ -57,7 +59,9 @@ class Intervals extends Component {
         level: level
       });
       this.newInterval(level);
-      this.setState({ [name]: "green" });
+      this.setState({
+        [name]: "green"
+      });
     }
   }
 
@@ -185,9 +189,7 @@ class Intervals extends Component {
       return (
         <button
           onClick={() => this.checkAnswer(type.answer)}
-          className={
-            "btn interval  waves-light " + this.state[type.answer]
-          }
+          className={"btn interval  waves-light " + this.state[type.answer]}
         >
           {type.title}
         </button>
@@ -218,26 +220,15 @@ class Intervals extends Component {
         <div className="answers">{buttons}</div>
         <p style={{ fontSize: "1.5em" }}>Click the correct interval.</p>
         <p style={{ color: "teal", fontSize: "1.5em" }}>Level: {level}</p>
+
         <div className="difficulties">
-          <button
-            className="btn  waves-light"
-            id="1"
-            onClick={this.difficulty}
-          >
+          <button className="btn  waves-light" id="1" onClick={this.difficulty}>
             Easy
           </button>
-          <button
-            className="btn  waves-light"
-            id="2"
-            onClick={this.difficulty}
-          >
+          <button className="btn  waves-light" id="2" onClick={this.difficulty}>
             Medium
           </button>
-          <button
-            className="btn  waves-light"
-            id="3"
-            onClick={this.difficulty}
-          >
+          <button className="btn  waves-light" id="3" onClick={this.difficulty}>
             Hard
           </button>
         </div>

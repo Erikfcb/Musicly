@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { Route, Redirect } from "react-router";
 import axios from "axios";
 import * as EmailValidator from "email-validator";
-import {
-  loginById
-} from '../actions'
+import { loginById } from "../actions";
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +18,15 @@ class SignUp extends Component {
     const style = { textAlign: "center" };
 
     const handleSubmit = async () => {
+      if (
+        this.state.password === "" ||
+        this.state.username === "" ||
+        this.state.email === ""
+      ) {
+        this.setState({
+          exist: <p style={{ color: "red" }}>Please enter your details.</p>
+        });
+      }
       let validEmail = "";
       if (this.state.email !== "") {
         validEmail = EmailValidator.validate(this.state.email);
@@ -56,7 +63,12 @@ class SignUp extends Component {
           });
         }
 
-        if (!res.data.email && !res.data.username) {
+        if (
+          !res.data.email &&
+          !res.data.username &&
+          this.state.password !== "" &&
+          this.state.username !== ""
+        ) {
           const resId = await axios.post("/api/signup/new", {
             email: this.state.email.toLowerCase().trim(),
             password: this.state.password,
@@ -66,7 +78,7 @@ class SignUp extends Component {
           this.props.loginById(resId.data.id);
 
           this.setState({
-            exist: <Redirect to='/games' />
+            exist: <Redirect to="/games" />
           });
         }
       }
@@ -99,7 +111,7 @@ class SignUp extends Component {
           />
           <label>Email: </label>
           <input
-            type="text"
+            type="email"
             onChange={handleChange}
             name="email"
             value={this.state.email}
@@ -113,7 +125,6 @@ class SignUp extends Component {
     );
   }
 }
-
 
 export default connect(
   null,

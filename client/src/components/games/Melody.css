@@ -18,14 +18,18 @@
 }
 
 .reset {
-  margin-top: 40px;
   width: 100px;
+}
+
+.resetAnswer {
+  width: 300px;
+  margin-top: 40px;  
 }
 
 .feedback {
   margin-top: 20px;
   opacity: 0;
-  animation: fade 1s;
+  animation: fade 2s;
 }
 
 @keyframes fade {
