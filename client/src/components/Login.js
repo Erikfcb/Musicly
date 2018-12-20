@@ -39,10 +39,7 @@ class Login extends Component {
           error: <Redirect to="/games" />
         });
       }
-      // console.log("res.data:");
-      // console.log(res.data);
-      // const token = localStorage.getItem("token");
-      // console.log("token saved: " + token);
+
     };
 
     const handleChange = event => {

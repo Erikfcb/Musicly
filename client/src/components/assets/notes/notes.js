@@ -129,4 +129,26 @@ const intervals = {
   ]
 };
 
-export { all, octaves, twoOctaves, intervals };
+const randomMelody = () => {
+
+  let first = octaves.c3[Math.floor(Math.random() * octaves.c3.length)];
+  let second = octaves.c3[Math.floor(Math.random() * octaves.c3.length)];
+  let third = octaves.c3[Math.floor(Math.random() * octaves.c3.length)];
+  let fourth = octaves.c3[Math.floor(Math.random() * octaves.c3.length)];
+
+  while (first == second) {
+    first = octaves.c3[Math.floor(Math.random() * octaves.c3.length)];
+  }
+
+  const melody = {
+    easy: [first, second],
+    medium: [first, second, third],
+    hard: [first, second, third, fourth]
+  };
+
+  console.log(melody);
+
+  return melody;
+};
+
+export { all, octaves, twoOctaves, intervals, randomMelody };

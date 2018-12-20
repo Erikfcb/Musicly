@@ -6,8 +6,6 @@ export default (state = {}, action) => {
       return { logged: true, user: action.user };
     case LOGOUT:
       return action.payload;
-    case SIGNUP:
-    return "";
     default:
       return state;
   }

@@ -6,7 +6,6 @@ import Typist from "react-typist";
 
 class Landing extends Component {
   render() {
-    console.log(this.props.auth.logged);
     const type = this.props.auth.logged ? (
       ""
     ) : (

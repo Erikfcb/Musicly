@@ -103,7 +103,6 @@ class GuessTheNote extends Component {
       const audio = new Audio(sound);
       audio.play();
       if (name === sounds[answer].name) {
-        console.log("right");
         // if the user's right
         localStorage.setItem(
           "guessTheNote",
@@ -116,7 +115,6 @@ class GuessTheNote extends Component {
         }, 1000);
       }
       if (name !== sounds[answer].name) {
-        console.log("wrong");
         // if the user's wrong
         change(name, false);
         setTimeout(() => {
@@ -153,14 +151,14 @@ class GuessTheNote extends Component {
         <div className="question">
           <button
             onClick={() => playQuestion(sounds[answer].sound)}
-            className="btn green sound  waves-light"
+            className="btn green sound"
           >
             Play
           </button>
-          <p style={{ fontSize: "1.5em" }}>Click the button to hear again</p>
+          <p style={{ fontSize: "1.5em" }}>Click "Play" to hear the note</p>
           <button
             onClick={() => playQuestion(sounds[0].sound)}
-            className="btn teal sound  waves-light"
+            className="btn teal sound"
           >
             C
           </button>

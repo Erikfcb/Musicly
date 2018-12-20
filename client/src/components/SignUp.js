@@ -62,10 +62,8 @@ class SignUp extends Component {
             password: this.state.password,
             username: this.state.username.toLowerCase().trim()
           });
-          console.log(resId.data.id);
 
           this.props.loginById(resId.data.id);
-          console.log(localStorage.getItem("token"));
 
           this.setState({
             exist: <Redirect to='/games' />

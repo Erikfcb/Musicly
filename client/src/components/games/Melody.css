@@ -1,3 +1,41 @@
 .melody {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.difficulties {
+  width: 50%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.interval {
+  width: 170px;
+  height: 70px !important;
+}
+
+.reset {
+  margin-top: 40px;
+  width: 100px;
+}
+
+.feedback {
+  margin-top: 20px;
+  opacity: 0;
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

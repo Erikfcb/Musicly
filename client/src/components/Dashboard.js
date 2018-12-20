@@ -27,7 +27,6 @@ class Dashboard extends Component {
 
   render() {
     let games = {};
-    console.log(this.props.games);
 
     const renderGames = () => {
       games = {
@@ -110,7 +109,6 @@ class Dashboard extends Component {
       };
     };
 
-    console.log(localStorage.getItem("token"));
     if (typeof this.props.games.guessTheNote !== "undefined") {
       renderGames();
     }
@@ -123,6 +121,7 @@ class Dashboard extends Component {
         </blockquote>
         <Game game={games.guessTheNote} />
         <Game game={games.intervals} />
+        <Game game={games.melody} />        
       </div>
     );
   }

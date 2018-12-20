@@ -205,7 +205,7 @@ class Intervals extends Component {
           >
             Play
           </button>
-          <p style={{ fontSize: "1.5em" }}>Click the button to hear again</p>
+          <p style={{ fontSize: "1.5em" }}>Click "Play" to hear the interval</p>
 
           <p style={{ fontSize: "1.5em" }}>
             Progress: ({this.state.correct}/{this.state.tries}){" "}
