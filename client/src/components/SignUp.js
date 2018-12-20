@@ -4,6 +4,8 @@ import { Route, Redirect } from "react-router";
 import axios from "axios";
 import * as EmailValidator from "email-validator";
 import { loginById } from "../actions";
+import { Row, Input, Icon } from "react-materialize";
+
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -37,11 +39,19 @@ class SignUp extends Component {
           exist: <p style={{ color: "red" }}>Invalid email.</p>
         });
       }
-      if (validEmail && validEmail !== "") {
+
+      if (
+        validEmail &&
+        validEmail !== "" &&
+        this.state.password !== "" &&
+        this.state.username !== ""
+      ) {
         const res = await axios.post("/api/signup/checkexist", {
           email: this.state.email.toLowerCase().trim(),
           username: this.state.username.toLowerCase().trim()
         });
+        console.log("mail: " + res.data.email);
+        console.log("username: " + res.data.username);
 
         if (res.data.email) {
           this.setState({
@@ -64,8 +74,8 @@ class SignUp extends Component {
         }
 
         if (
-          !res.data.email &&
-          !res.data.username &&
+          res.data.email === false &&
+          res.data.username === false &&
           this.state.password !== "" &&
           this.state.username !== ""
         ) {
@@ -91,36 +101,52 @@ class SignUp extends Component {
     const toLogin = this.state.flag ? <Redirect to="/login" /> : "";
 
     return (
-      <div className="signup container">
-        {toLogin}
-        <h1 style={style}>Sign up for free!</h1>
-        <form>
-          <label>Username: </label>
-          <input
-            type="text"
-            onChange={handleChange}
-            name="username"
-            value={this.state.username}
-          />
-          <label>Password: </label>
-          <input
-            type="password"
-            onChange={handleChange}
-            name="password"
-            value={this.state.password}
-          />
-          <label>Email: </label>
-          <input
-            type="email"
-            onChange={handleChange}
-            name="email"
-            value={this.state.email}
-          />
-        </form>
-        <button onClick={handleSubmit} className="btn blue">
-          Submit
-        </button>
-        {this.state.exist}
+      <div className="container">
+        <div className="container">
+          <div className="container">
+            <div className="signup container">
+              {toLogin}
+              <h1 style={style}>Sign up for free!</h1>
+
+              <Row>
+                <Input
+                  type="text"
+                  s={12}
+                  label="Username"
+                  onChange={handleChange}
+                  name="username"
+                  value={this.state.username}
+                >
+                  <Icon>account_circle</Icon>
+                </Input>
+                <Input
+                  type="password"
+                  label="password"
+                  s={12}
+                  onChange={handleChange}
+                  name="password"
+                  value={this.state.password}
+                >
+                  <Icon>dialpad</Icon>
+                </Input>
+                <Input
+                  type="email"
+                  label="Email"
+                  s={12}
+                  onChange={handleChange}
+                  name="email"
+                  value={this.state.email}
+                >
+                  <Icon>email</Icon>
+                </Input>
+              </Row>
+              <button onClick={handleSubmit} className="btn blue">
+                Submit
+              </button>
+              {this.state.exist}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

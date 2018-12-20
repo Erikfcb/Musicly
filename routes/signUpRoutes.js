@@ -4,25 +4,27 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/api/signup/checkexist", async (req, res) => {
-  const checks = {
-    username: false,
-    email: false
+  let checks = {
+    email: false,
+    username: false
   };
 
-  await User.findOne({ email: req.body.email }, (err, user) => {
-    //if email exists.
-    if (user != null) {
+  const user = await User.findOne(
+    { $or: [{ email: req.body.email }, { username: req.body.username }] },
+    (err, user) => {
+      return user;
+    }
+  );
+
+  if (user != null) {
+    if (user.email == req.body.email) {
       checks.email = true;
     }
-  });
-
-  await User.findOne({ username: req.body.username }, (err, user) => {
-    //if username exists.
-    if (user != null) {
+    if (user.username == req.body.username) {
       checks.username = true;
     }
-  });
-  res.send(checks);
+  }
+  res.json(checks);
 });
 
 router.post("/api/signup/new", (req, res) => {
