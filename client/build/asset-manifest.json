@@ -1,10 +1,10 @@
 {
-  "main.css": "/static/css/main.9aadb9ce.chunk.css",
-  "main.js": "/static/js/main.222dd576.chunk.js",
-  "main.js.map": "/static/js/main.222dd576.chunk.js.map",
+  "main.css": "/static/css/main.cca74aa7.chunk.css",
+  "main.js": "/static/js/main.22c1e76a.chunk.js",
+  "main.js.map": "/static/js/main.22c1e76a.chunk.js.map",
   "static/css/1.742ba46d.chunk.css": "/static/css/1.742ba46d.chunk.css",
-  "static/js/1.4e453dfa.chunk.js": "/static/js/1.4e453dfa.chunk.js",
-  "static/js/1.4e453dfa.chunk.js.map": "/static/js/1.4e453dfa.chunk.js.map",
+  "static/js/1.965d279c.chunk.js": "/static/js/1.965d279c.chunk.js",
+  "static/js/1.965d279c.chunk.js.map": "/static/js/1.965d279c.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
   "static/media/d.wav": "/static/media/d.c4d20890.wav",
@@ -15,9 +15,9 @@
   "static/media/b.wav": "/static/media/b.b598f80f.wav",
   "static/media/a.wav": "/static/media/a.50da716c.wav",
   "static/media/game.css": "/static/media/piano2.01fbfe17.png",
-  "static/css/main.9aadb9ce.chunk.css.map": "/static/css/main.9aadb9ce.chunk.css.map",
   "static/css/1.742ba46d.chunk.css.map": "/static/css/1.742ba46d.chunk.css.map",
+  "static/css/main.cca74aa7.chunk.css.map": "/static/css/main.cca74aa7.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.9b95c86324e96ae9e1a86d22868f0a06.js": "/precache-manifest.9b95c86324e96ae9e1a86d22868f0a06.js",
+  "precache-manifest.7b2649c4316e55042d3cbbc21eda9c14.js": "/precache-manifest.7b2649c4316e55042d3cbbc21eda9c14.js",
   "service-worker.js": "/service-worker.js"
 }

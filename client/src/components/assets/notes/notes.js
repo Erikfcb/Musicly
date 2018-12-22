@@ -146,8 +146,6 @@ const randomMelody = () => {
     hard: [first, second, third, fourth]
   };
 
-  console.log(melody);
-
   return melody;
 };
 

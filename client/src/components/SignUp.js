@@ -50,8 +50,6 @@ class SignUp extends Component {
           email: this.state.email.toLowerCase().trim(),
           username: this.state.username.toLowerCase().trim()
         });
-        console.log("mail: " + res.data.email);
-        console.log("username: " + res.data.username);
 
         if (res.data.email) {
           this.setState({

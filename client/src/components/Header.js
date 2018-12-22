@@ -1,12 +1,24 @@
 import React, { Component } from "react";
 import { Route, Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Dropdown, Button, NavItem } from "react-materialize";
+import { Dropdown, Button, NavItem, Navbar } from "react-materialize";
 import "../style/header.css";
 
 import * as actions from "../actions";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect: ""
+    };
+    this.redirect = this.redirect.bind(this);
+  }
+
+  redirect(route) {
+    this.setState({ redirect: <Redirect to={route} /> });
+  }
+
   render() {
     const logout = () => {
       localStorage.removeItem("token");
@@ -15,50 +27,90 @@ class Header extends Component {
 
     const navigation =
       this.props.auth.logged || localStorage.getItem("token") != null ? (
-        <ul class="right headerButtons">
-          <li>
-            <Link to="/games">Exercises</Link>
-          </li>
-          <li>
-            <Link to="/howto">How to practice</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link onClick={logout} to="/" className="logout">
-              Logout
-            </Link>
-          </li>
-        </ul>
+        <div>
+          <NavItem
+            onClick={() => {
+              const route = "/games";
+              this.redirect(route);
+            }}
+          >
+            Exercises
+          </NavItem>
+          <NavItem
+            onClick={() => {
+              const route = "/howto";
+              this.redirect(route);
+            }}
+          >
+            How to practice
+          </NavItem>
+          <NavItem
+            onClick={() => {
+              const route = "/contact";
+              this.redirect(route);
+            }}
+          >
+            Contact
+          </NavItem>
+          <NavItem
+            onClick={() => {
+              const route = "/login";
+              this.redirect(route);
+              logout();
+            }}
+            className="logout"
+          >
+            Logout
+          </NavItem>
+        </div>
       ) : (
-        <ul id="nav" class="right headerButtons">
-          <li>
-            <Link to="/howto">How to practice</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/signup">Sign up</Link>
-          </li>
-          <li>
-            <Link to="/login" className="login">
-              Login
-            </Link>
-          </li>
-        </ul>
+        <div>
+          <NavItem
+            onClick={() => {
+              const route = "/howto";
+              this.redirect(route);
+            }}
+          >
+            How to practice
+          </NavItem>
+          <NavItem
+            onClick={() => {
+              const route = "/contact";
+              this.redirect(route);
+            }}
+          >
+            Contact
+          </NavItem>
+          <NavItem
+            onClick={() => {
+              const route = "/signup";
+              this.redirect(route);
+            }}
+          >
+            Sign up
+          </NavItem>
+          <NavItem
+            onClick={() => {
+              const route = "/login";
+              this.redirect(route);
+            }}
+            className="login"
+          >
+            Login
+          </NavItem>
+        </div>
       );
 
     return (
-      <nav>
-        <div class="nav-wrapper blue">
-          <Link to="/" className="brand-logo">
-            Musicly
-          </Link>
-          {navigation}
-        </div>
-      </nav>
+      <Navbar
+        brand="Musicly"
+        className="header blue"
+        right
+        style={{ padding: "0 40px" }}
+      >
+        {navigation}
+        {this.state.redirect}
+      </Navbar>
     );
   }
 }
