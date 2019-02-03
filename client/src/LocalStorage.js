@@ -1,6 +1,6 @@
-const login = (id) => {
+const login = (token) => {
   if (typeof(Storage) !== "undefined") {
-    localStorage.setItem("token", id);
+    localStorage.setItem("token", token);
   } else {
     console.log("Sorry! No Web Storage support..");
   }

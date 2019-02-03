@@ -1,22 +1,22 @@
 import axios from "axios";
 import { LOGIN, LOGOUT, FETCH_GAMES } from "./types";
 
-export const login = () => async (dispatch, user) => {
-  const res = await axios.post("/api/login", { user });
-  dispatch({ type: LOGIN, payload: res.data.user });
+export const login = user => dispatch => {
+  localStorage.setItem("token", user.token);
+  dispatch({ type: LOGIN, payload: user });
 };
 
-export const loginById = id => async dispatch => {
-  localStorage.setItem("token", id);
-  const res = await axios.post("/api/login/id", { id });
-  dispatch({ type: LOGIN, payload: res.data.user });
-};
-
-export const logout = () => async dispatch => {
+export const logout = () => dispatch => {
   dispatch({ type: LOGOUT, payload: { logged: false, user: {} } });
 };
 
-export const fetchGames = token => async dispatch => {
-  const res = await axios.post("/api/games", { id: token.id });
+export const fetchGames = ({ token }) => async dispatch => {
+  const res = await axios({
+    method: "POST",
+    url: "/api/games",
+    headers: {
+      authorization: token
+    }
+  });
   dispatch({ type: FETCH_GAMES, payload: res.data.games });
 };
