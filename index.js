@@ -3,9 +3,10 @@ const bodyParser = require("body-parser");
 const package = require('./package');
 const database = require('./models');
 const appRouter = require('./routes');
+const path = require("path");
 const app = express();
 
-// app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
