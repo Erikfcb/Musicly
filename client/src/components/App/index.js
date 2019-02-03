@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Dashboard from "../Dashboard";
 import Landing from "../Landing";
 import Header from "../Header";
@@ -21,6 +21,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="">
           <Header />
+          <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
@@ -30,6 +31,7 @@ class App extends Component {
           <Route path="/melody" component={Melody} />
           <Route path="/howto" component={Howto} />
           <Route path="/contact" component={Contact} />
+          </Switch>          
         </div>
       </BrowserRouter>
     );
