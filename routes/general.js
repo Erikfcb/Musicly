@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 const User = mongoose.model("user");
-const path = require("path");
+// const path = require("path");
 const express = require("express");
 const router = express.Router();
 const auth = require('../middlewares/auth');
 
-router.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
-});
+// router.get("/*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+// });
 
 router.use(auth.tokenMiddleware);
 

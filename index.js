@@ -5,7 +5,7 @@ const database = require('./models');
 const appRouter = require('./routes');
 const app = express();
 
-app.use(express.static(path.join(__dirname, "./client/build")));
+// app.use(express.static(path.join(__dirname, "./client/build")));
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
