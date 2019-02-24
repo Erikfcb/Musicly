@@ -109,7 +109,6 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps({ games }) {
-  // to be able to use this.props.auth
   return { games };
 }
 
@@ -117,4 +116,3 @@ export default connect(
   mapStateToProps,
   actions
 )(Dashboard);
-// export default Dashboard;

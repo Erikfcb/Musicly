@@ -54,8 +54,6 @@ class Header extends Component {
           </NavItem>
           <NavItem
             onClick={() => {
-              // console.log("logout!!!");
-              // const route = "/login";
               this.redirect("/login");
               logout();
             }}
@@ -117,7 +115,6 @@ class Header extends Component {
 }
 
 function mapStateToProps({ auth }) {
-  // to be able to use this.props.auth
   return { auth };
 }
 

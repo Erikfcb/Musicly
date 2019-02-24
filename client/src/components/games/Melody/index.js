@@ -262,7 +262,6 @@ class Melody extends Component {
 }
 
 function mapStateToProps({ auth, games }) {
-  // to be able to use this.props.game
   return { auth, games };
 }
 

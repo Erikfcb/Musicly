@@ -12,10 +12,10 @@ router.post("/api/login", (req, res) => {
   };
   User.findOne({ username: req.body.username }, (err, user) => {
     if (err) return res.sendStatus(500);
-    if (!user) return res.sendStatus(404);
+    if (!user) return res.json(data).status(404);
 
     bcrypt.compare(req.body.password, user.password, (err, valid) => {
-      if (err || !valid) return res.status(400).send(data);
+      if (err || !valid) return res.json(data).status(400);
 
       user.token = crypto.randomBytes(60).toString("hex");
       user.save((err, updatedUser) => {

@@ -20,30 +20,31 @@ class Login extends Component {
   }
 
   async handleSubmit() {
+    
     const res = await axios.post("/api/login", {
       username: this.state.username.toLowerCase().trim(),
       password: this.state.password
     });
 
+    console.log(res.status);    
+
     if (!res.data.exist) {
       this.setState({
         error: (
-          <h3 style={{ color: "red" }}>
+          <div style={{ color: "red" , marginTop: "10px"}}>
             wrong username or password, please try again.
-          </h3>
+          </div>
         )
       });
       localStorage.removeItem("token");
     }
     if (res.data.exist) {
-      login(res.data.user.token);
       this.props.login(res.data.user);
-
       this.setState({
         error: <Redirect to="/games" />
       });
     }
-  };
+  }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
